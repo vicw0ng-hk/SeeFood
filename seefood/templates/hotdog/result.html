@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result - SeeFood</title>
+    <style>
+        img {
+            display: block;
+            max-width:800px;
+            max-height:400px;
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+{% load static %}
+<img src="{% static "images/" %}{{ file }}" alt="uploaded file">
+<h2>{{ res }}</h2>
+<a href="/">Back</a>
+</body>
+</html>

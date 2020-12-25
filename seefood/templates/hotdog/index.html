@@ -5,6 +5,14 @@
     <title>SeeFood - Hotdog</title>
 </head>
 <body>
-Hello world!
+    <h2>Upload a food photo.</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.file }}
+        <button type="submit">Upload</button>
+    </form>
+    {% if res %}
+        {{ res }}
+    {% endif %}
 </body>
 </html>
