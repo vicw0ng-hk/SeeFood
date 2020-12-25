@@ -1,18 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>SeeFood - Hotdog</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Drag-Drop-File-Input-Upload.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/File-Input---Beautiful-Input--Button-Approach-Jasny-Bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <style>
+        h2, form {
+            margin: 15px;
+        }
+    </style>
 </head>
+
 <body>
+    <h1 style="color: var(--warning);font-family: Aclonica, sans-serif;"><i class="fas fa-hamburger" style="color: var(--danger);"></i>SeeFood</h1>
     <h2>Upload a food photo.</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.file }}
-        <button type="submit">Upload</button>
+        <div class="form-group files color">{{ form.file }}</div>
+        <button class="btn btn-outline-secondary btn-lg" type="submit">Upload</button>
     </form>
-    {% if res %}
-        {{ res }}
-    {% endif %}
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/File-Input---Beautiful-Input--Button-Approach-Jasny-Bootstrap.js' %}"></script>
 </body>
+
 </html>

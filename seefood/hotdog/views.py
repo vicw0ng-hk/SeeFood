@@ -3,6 +3,7 @@ from fastai.vision.all import load_learner
 from pathlib import Path
 from .forms import UploadFileForm
 from random import randint
+from datetime import datetime, timedelta
 
 
 # Create your views here.
@@ -30,7 +31,8 @@ def main(request):
             context = {'res': res, 'file': filename.split('/')[-1]}
             return render(request, 'hotdog/result.html', context)
     static_path = Path().cwd()/'hotdog'/'static'/'images'
-    for child in static_path.glob('*'):
-        child.unlink()
+    for child in static_path.glob('*.upload'):
+        if datetime.now() - datetime.fromtimestamp(child.stat().st_ctime) > timedelta(minutes=3):
+            child.unlink()
     context = {'form': UploadFileForm()}
     return render(request, 'hotdog/index.html', context)

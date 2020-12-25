@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Result - SeeFood</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
     <style>
         img {
             display: block;
-            max-width:800px;
-            max-height:400px;
+            max-width:400px;
+            max-height:200px;
             width: auto;
             height: auto;
+            margin: 15px;
+        }
+        h2, .btn {
+            margin: 15px;
         }
     </style>
 </head>
 <body>
-{% load static %}
-<img src="{% static "images/" %}{{ file }}" alt="uploaded file">
-<h2>{{ res }}</h2>
-<a href="/">Back</a>
+    <h1 style="color: var(--warning);font-family: Aclonica, sans-serif;"><i class="fas fa-hamburger" style="color: var(--danger);"></i>SeeFood</h1>
+    <img src="{% static 'images/' %}{{ file }}" class="rounded float-left" alt="uploaded file">
+    <h2 style="clear: both;">{{ res }}</h2>
+    <a class="btn btn-outline-primary" href="/">Back</a>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
 </html>
