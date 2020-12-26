@@ -18,3 +18,12 @@ My first Deep Learning project.
 1. go to `seefood/` (`cd seefood/`)
 2. run `gunicorn seefood.wsgi`
 
+## Interface
+#### Main Page
+<img src="demo_photo/main.png" width="600">
+
+#### Hotdog
+<img src="demo_photo/hotdog.png" width="600">
+
+#### Not Hotdog
+<img src="demo_photo/not-hotdog.png" width="600">
