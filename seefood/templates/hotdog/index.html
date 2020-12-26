@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/File-Input---Beautiful-Input--Button-Approach-Jasny-Bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
     <style>
-        h2, form {
+        h2, h3, form {
             margin: 15px;
         }
     </style>
@@ -22,6 +22,9 @@
 <body>
     <h1 style="color: var(--warning);font-family: Aclonica, sans-serif;"><i class="fas fa-hamburger" style="color: var(--danger);"></i>SeeFood</h1>
     <h2>Upload a food photo.</h2>
+    {% if message %}
+        <h3>{{ message }}</h3>
+    {% endif %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group files color">{{ form.file }}</div>

@@ -25,7 +25,7 @@
 </head>
 <body>
     <h1 style="color: var(--warning);font-family: Aclonica, sans-serif;"><i class="fas fa-hamburger" style="color: var(--danger);"></i>SeeFood</h1>
-    <img src="{% static 'images/' %}{{ file }}" class="rounded float-left" alt="uploaded file">
+    <img src="{{ file }}" class="rounded float-left" alt="uploaded file">
     <h2 style="clear: both;">{{ res }}</h2>
     <a class="btn btn-outline-primary" href="/">Back</a>
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
