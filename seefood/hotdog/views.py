@@ -5,7 +5,6 @@ from .forms import UploadFileForm
 from django.conf import settings
 from .models import *
 from datetime import datetime, timedelta, timezone
-import os
 
 
 # Create your views here.
@@ -17,8 +16,7 @@ def main(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             obj = form.save()
-            file = settings.MEDIA_ROOT + '/' + obj.file.name
-            res = learn_inf.predict(file)[0]
+            res = learn_inf.predict(Path(settings.MEDIA_ROOT + '/' + obj.file.name))[0]
             context = {'res': res, 'file': obj.file.url}
             return render(request, 'hotdog/result.html', context)
         else:
@@ -26,7 +24,7 @@ def main(request):
             return render(request, 'hotdog/index.html', context)
     for image in Image.objects.all():
         if datetime.now(timezone.utc) - image.time > timedelta(minutes=3):
-            os.remove(settings.MEDIA_ROOT + '/' + image.file.name)
+            Path(settings.MEDIA_ROOT + '/' + image.file.name).unlink(missing_ok=True)
             image.delete()
     context = {'form': UploadFileForm()}
     return render(request, 'hotdog/index.html', context)
