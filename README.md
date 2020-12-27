@@ -11,6 +11,8 @@ The model is trained in transfer learning with [ResNet50](https://iq.opengenus.o
 
 My first Deep Learning project. 
 
+**Note this repo contains a Git LFS file, check out [Git LFS tutorial](https://github.com/git-lfs/git-lfs/wiki/Tutorial#pulling-and-cloning) for cloning.**
+
 ## Install Requirements
 `pip install -r requirements.txt` (or `pip3 install -r requirements.txt`)
 
